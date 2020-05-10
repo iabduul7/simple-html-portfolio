@@ -28,7 +28,7 @@ function includeHTML(attribute_name) {
           }
           /* Remove the attribute, and call this function once more: */
           elmnt.removeAttribute(attribute_name);
-          // includeHTML();
+          includeHTML();
         }
       };
       xhttp.open("GET", file, true);
