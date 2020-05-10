@@ -4,11 +4,11 @@ IndexOptions FancyIndexing
 
 DirectoryIndex index.html
 
-ErrorDocument 400 http://www.iabdul.podserver.info/error400.html
-ErrorDocument 401 http://www.iabdul.podserver.info/error401.html
-ErrorDocument 403 http://www.iabdul.podserver.info/error403.html
-ErrorDocument 404 http://www.iabdul.podserver.info/error404.html
-ErrorDocument 503 http://www.iabdul.podserver.info/error503.html
+ErrorDocument 400 https://iabdul.ml/errors/error400.html
+ErrorDocument 401 https://iabdul.ml/errors/error401.html
+ErrorDocument 403 https://iabdul.ml/errors/error403.html
+ErrorDocument 404 https://iabdul.ml/errors/error404.html
+ErrorDocument 503 https://iabdul.ml/errors/error503.html
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
