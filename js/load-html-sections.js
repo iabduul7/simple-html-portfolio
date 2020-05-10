@@ -13,22 +13,14 @@ function includeHTML(attribute_name) {
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4) {
           if (this.status == 200) {
-            if (attribute_name.localeCompare("include-url") == 0) {
-              elmnt.appendChild(
-                new DOMParser()
-                  .parseFromString(this.responseText, "text/html")
-                  .getElementById("url-list")
-              );
-            } else {
-              elmnt.innerHTML = this.responseText;
-            }
+            elmnt.innerHTML = this.responseText;
           }
           if (this.status == 404) {
             elmnt.innerHTML = "Page not found.";
           }
           /* Remove the attribute, and call this function once more: */
           elmnt.removeAttribute(attribute_name);
-          includeHTML();
+          includeHTML(attribute_name);
         }
       };
       xhttp.open("GET", file, true);
