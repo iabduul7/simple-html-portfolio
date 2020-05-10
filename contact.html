@@ -41,11 +41,11 @@
   <div class='page'>
 
     <div include-nav="nav.html"></div>
-    <script> includeNav('contact-nav'); </script>
+    <script> includeHTML('include-nav'); </script>
 
     <div id='colorlib-page'>
       <div include-header="header.html"></div>
-      <script> includeHeader(); </script>
+      <script> includeHTML('include-header'); </script>
 
       <section class='ftco-section contact-section'>
         <div class='container mt-5'>
@@ -57,7 +57,7 @@
             <div class='col-md-3'>
               <p><span>Address: <br></span> <a
                   href='https://www.google.com/maps/place/33%C2%B03926.0%22N+73%C2%B00924.7%22E/@33.6578084,73.1569407,17.75z/data=!4m6!3m5!1s0x38dfea49b9076e77:0xa6bc6ff30824ba21!7e2!8m2!3d33.6572276!4d73.1568646'>
-                  10 Royal Avenue, Meherban Colony Chatta Bakhtawar, Islamabad, Islamabad Capital Territory, Pakistan
+                  10 Royal Avenue, Meherban Colony, Chatta Bakhtawar, Islamabad, Pakistan
               </p> </a>
             </div>
             <div class='col-md-3'>
@@ -98,18 +98,15 @@
       </section>
 
       <div include-footer="footer.html"></div>
-      <script> includeFooter(); </script>
+      <script> includeHTML('include-footer'); </script>
 
       <!-- loader -->
-      <div id='ftco-loader' class='show fullscreen'><svg class='circular' width='48px' height='48px'>
-          <circle class='path-bg' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee' />
-          <circle class='path' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10'
-            stroke='#2F89FC' /></svg></div>
+      <div include-loader="loader.html"></div>
+      <script> includeHTML('include-loader'); </script>
 
     </div>
 
   </div>
-
 
   <script src='js/jquery.min.js'></script>
   <script src='js/jquery-migrate-3.0.1.min.js'></script>
