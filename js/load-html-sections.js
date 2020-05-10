@@ -1,4 +1,4 @@
-function includeNav(page_name) {
+function includeHTML(attribute_name) {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
   z = document.getElementsByTagName("*");
@@ -6,88 +6,29 @@ function includeNav(page_name) {
     elmnt = z[i];
 
     /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("include-nav");
+    file = elmnt.getAttribute(attribute_name);
     if (file) {
       /* Make an HTTP request using the attribute value as the file name: */
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4) {
           if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
+            if (attribute_name.localeCompare("include-url") == 0) {
+              elmnt.appendChild(
+                new DOMParser()
+                  .parseFromString(this.responseText, "text/html")
+                  .getElementById("url-list")
+              );
+            } else {
+              elmnt.innerHTML = this.responseText;
+            }
           }
           if (this.status == 404) {
             elmnt.innerHTML = "Page not found.";
           }
           /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("include-nav");
-          // includeNav();
-        }
-      };
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
-    }
-  }
-}
-
-function includeHeader() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("include-header");
-    if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = "Page not found.";
-          }
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("include-header");
-          includeHeader();
-        }
-      };
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
-    }
-  }
-}
-
-
-function includeFooter() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("include-footer");
-    if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = "Page not found.";
-          }
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("include-footer");
-          includeFooter();
+          elmnt.removeAttribute(attribute_name);
+          // includeHTML();
         }
       };
       xhttp.open("GET", file, true);
