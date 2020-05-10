@@ -8260,36 +8260,6 @@ textarea.form-control {
   text-transform: uppercase;
   letter-spacing: .1em; }
 
-@font-face {
-  font-family: FiraCode-Bold;
-  src: url(../fonts/firacode/FiraCode-Bold.woff);
-}
-
-@font-face {
-  font-family: FiraCode-Light;
-  src: url(../fonts/firacode/FiraCode-Light.woff);
-}
-
-@font-face {
-  font-family: FiraCode-Medium;
-  src: url(../fonts/firacode/FiraCode-Medium.woff);
-}
-
-@font-face {
-  font-family: FiraCode-Regular;
-  src: url(../fonts/firacode/FiraCode-Regular.woff);
-}
-
-@font-face {
-  font-family: FiraCode-SemiBold;
-  src: url(../fonts/firacode/FiraCode-SemiBold.woff);
-}
-
-@font-face {
-  font-family: FiraCode-VF;
-  src: url(../fonts/firacode/FiraCode-VF.woff);
-}
-
 .block-20 {
   overflow: hidden;
   background-size: cover;
